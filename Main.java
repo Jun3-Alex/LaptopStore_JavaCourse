@@ -1,5 +1,7 @@
 package Lesson6.Hometask;
 
+import java.util.List;
+
 public class Main {
     /* Подумать над структурой класса Ноутбук для магазина техники - выделить поля и методы. Реализовать в java.
     Создать множество ноутбуков.
@@ -21,22 +23,26 @@ public class Main {
     4. Работа выполнена только для каких то конкретных ноутбуков, и если поменять характеристики ноутбуков или
     добавить еще ноутбук, то программа начинает работать некорректно*/
     public static void main(String[] args) {
-        Notebook laptop1 = new Notebook();
-        laptop1.setModel();
 
-        System.out.println(laptop1.getModel());
+        NotebookList notebookList = new NotebookList();
+        notebookList.addNotebooks();
+        Store store = notebookList.getStore();
 
+        FilterMenu filterMenu = new FilterMenu(notebookList.getStore());
+
+        System.out.println("Введите критерии фильтрации:");
+        System.out.println("1 - Производитель");
+        System.out.println("2 - ОЗУ");
+        System.out.println("3 - Объем ЖД");
+        System.out.println("4 - Операционная система");
+        System.out.println("5 - Цвет");
+
+        List<Notebook> filteredNotebooks = filterMenu.applyFilters();
+
+        for (Notebook notebook : filteredNotebooks) {
+            System.out.println(notebook);
+        }
     }
-    
-
-
-
-
-
-
-
-
-
 }
 
 
