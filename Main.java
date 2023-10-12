@@ -8,7 +8,7 @@ public class Main {
     Написать метод, который будет запрашивать у пользователя критерий (или критерии) фильтрации и выведет ноутбуки,
     отвечающие фильтру. Критерии фильтрации можно хранить в Map.
     Например:
-    “Введите цифру, соответствующую необходимому критерию:
+    Введите цифру, соответствующую необходимому критерию:
     1 - ОЗУ
     2 - Объем ЖД
     3 - Операционная система
@@ -26,7 +26,6 @@ public class Main {
 
         NotebookList notebookList = new NotebookList();
         notebookList.addNotebooks();
-        Store store = notebookList.getStore();
 
         FilterMenu filterMenu = new FilterMenu(notebookList.getStore());
 
@@ -36,6 +35,7 @@ public class Main {
         System.out.println("3 - Объем ЖД");
         System.out.println("4 - Операционная система");
         System.out.println("5 - Цвет");
+        System.out.println("6 - Посмотреть весь ассортимент");
 
         List<Notebook> filteredNotebooks = filterMenu.applyFilters();
 

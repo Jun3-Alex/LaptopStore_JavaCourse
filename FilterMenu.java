@@ -3,8 +3,8 @@ package Lesson6.Hometask;
 import java.util.*;
 
 public class FilterMenu {
-    private Scanner scanner;
-    private Store store;
+    private final Scanner scanner;
+    private final Store store;
 
     public FilterMenu(Store store) {
         this.store = store;
@@ -44,6 +44,10 @@ public class FilterMenu {
                     String colour = scanner.next();
                     filters.put("Colour", colour);
                     break;
+                case 6:
+                    System.out.println("Ноутбуки в наличии:");
+                    return store.filterNotebooks(new HashMap<>());
+
                 default:
                     System.out.println("Неверный выбор.");
             }
