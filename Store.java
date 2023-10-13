@@ -65,6 +65,24 @@ public class Store {
         return true;
     }
 
+    public boolean isBrandAvailable(String brand) {
+        List<Notebook> availableNotebooks = new ArrayList<>(notebooks);
+        return availableNotebooks.stream()
+                .anyMatch(notebook -> notebook.getBrand().equalsIgnoreCase(brand));
+    }
+
+    public boolean isOperatingSystemAvailable(String os) {
+        List<Notebook> availableNotebooks = new ArrayList<>(notebooks);
+        return availableNotebooks.stream()
+                .anyMatch(notebook -> notebook.getOs().equalsIgnoreCase(os));
+    }
+
+    public boolean isColourAvailable(String colour) {
+        List<Notebook> availableNotebooks = new ArrayList<>(notebooks);
+        return availableNotebooks.stream()
+                .anyMatch(notebook -> notebook.getColour().equalsIgnoreCase(colour));
+    }
+
     @Override
     public String toString() {
         return "Store{" + "notebooks=" + notebooks + '}';
