@@ -22,6 +22,7 @@ public class FilterMenu {
                 case 1:
                     System.out.println("Введите производителя:");
                     String brand = scanner.next();
+                    brand = brand.substring(0, 1).toUpperCase() + brand.substring(1).toLowerCase();
                     filters.put("Brand", brand);
                     break;
                 case 2:
@@ -37,11 +38,13 @@ public class FilterMenu {
                 case 4:
                     System.out.println("Введите операционную систему:");
                     String os = scanner.next();
+                    os = os.substring(0, 1).toUpperCase() + os.substring(1).toLowerCase();
                     filters.put("OperatingSystem", os);
                     break;
                 case 5:
                     System.out.println("Введите цвет:");
                     String colour = scanner.next();
+                    colour = colour.substring(0, 1).toUpperCase() + colour.substring(1).toLowerCase();
                     filters.put("Colour", colour);
                     break;
                 case 6:
@@ -49,7 +52,7 @@ public class FilterMenu {
                     return store.filterNotebooks(new HashMap<>());
 
                 default:
-                    System.out.println("Неверный выбор.");
+                    System.out.println("Ноутбука с выбранными критериями нет в наличии.");
             }
 
             System.out.println("Хотите продолжить фильтрацию? (1 - да, 0 - нет)");

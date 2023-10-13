@@ -30,11 +30,11 @@ public class Main {
         FilterMenu filterMenu = new FilterMenu(notebookList.getStore());
 
         System.out.println("Введите критерии фильтрации:");
-        System.out.println("1 - Производитель");
-        System.out.println("2 - ОЗУ");
-        System.out.println("3 - Объем ЖД");
-        System.out.println("4 - Операционная система");
-        System.out.println("5 - Цвет");
+        System.out.println("1 - Производитель ('Asus', 'Lenovo', 'HP', 'MacBook', 'Huawei')");
+        System.out.println("2 - ОЗУ ('2', '4', '8', '16', '32')");
+        System.out.println("3 - Объем ЖД ('256', '512', '1024', '2048', '4096')");
+        System.out.println("4 - Операционная система ('Windows 10', 'Windows 10 Pro', 'MacOS', 'ChromeOS', 'Linux')");
+        System.out.println("5 - Цвет ('Silver', 'Black', 'White', 'DarkBlue')");
         System.out.println("6 - Посмотреть весь ассортимент");
 
         List<Notebook> filteredNotebooks = filterMenu.applyFilters();
