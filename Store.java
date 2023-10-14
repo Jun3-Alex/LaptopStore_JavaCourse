@@ -44,12 +44,12 @@ public class Store {
             case "RAM" -> {
                 int notebookRam = notebook.getRam();
                 int filterRam = (int) filterValue;
-                return notebookRam >= filterRam;
+                return notebookRam == filterRam;
             }
             case "HardDriveCapacity" -> {
                 int notebookHardDrive = notebook.getHardDrive();
                 int filterHardDrive = (int) filterValue;
-                return notebookHardDrive >= filterHardDrive;
+                return notebookHardDrive == filterHardDrive;
             }
             case "OperatingSystem" -> {
                 String notebookOs = notebook.getOs();
@@ -57,18 +57,31 @@ public class Store {
                 return notebookOs.equalsIgnoreCase(filterOs);
             }
             case "Colour" -> {
-                String notebookColor = notebook.getColour();
-                String filterColor = (String) filterValue;
-                return notebookColor.equalsIgnoreCase(filterColor);
+                String notebookColour = notebook.getColour();
+                String filterColour = (String) filterValue;
+                return notebookColour.equalsIgnoreCase(filterColour);
             }
         }
         return true;
     }
 
+
     public boolean isBrandAvailable(String brand) {
         List<Notebook> availableNotebooks = new ArrayList<>(notebooks);
         return availableNotebooks.stream()
                 .anyMatch(notebook -> notebook.getBrand().equalsIgnoreCase(brand));
+    }
+
+    public boolean isRamAvailable(Integer ram) {
+        List<Notebook> availableNotebooks = new ArrayList<>(notebooks);
+        return availableNotebooks.stream()
+                .anyMatch(notebook -> notebook.getRam() == ram);
+    }
+
+    public boolean isHardDriveAvailable(Integer hardDrive) {
+        List<Notebook> availableNotebooks = new ArrayList<>(notebooks);
+        return availableNotebooks.stream()
+                .anyMatch(notebook -> notebook.getHardDrive() == hardDrive);
     }
 
     public boolean isOperatingSystemAvailable(String os) {
@@ -85,6 +98,6 @@ public class Store {
 
     @Override
     public String toString() {
-        return "Store{" + "notebooks=" + notebooks + '}';
+        return "Store{" + "notebooks=" + notebooks + '}'+ "\n";
     }
 }
